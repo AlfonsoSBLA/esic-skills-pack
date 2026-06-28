@@ -12,8 +12,10 @@ Cada skill condensa un proceso del curso para que puedas aplicarlo de forma ráp
 
 - Un cliente AI con acceso a un LLM bueno (**GPT-4o** · **Claude Sonnet 4.x** · **Gemini 1.5 Pro** o superior)
 - `git` instalado
-- Cuenta GitHub gratis (con GitHub Pages activado, para publicar dashboards)
-- Cuenta Zapier gratis (para hands-on de marketing automation en S3)
+- Cuenta Netlify gratis (para publicar landings y dashboards · drag-and-drop, sin git)
+- Cuenta Make.com gratis (para hands-on de marketing automation en S3 · 1.000 ops/mes)
+- Cuenta Brevo gratis (email marketing · 300 emails/día · contactos ilimitados)
+- Cuenta Google (Forms + Sheets + Apps Script · todo gratis)
 
 ---
 
@@ -39,24 +41,36 @@ Después puedes verificar que las skills están disponibles. En Claude Code: `/h
 
 ---
 
-## Skills disponibles (14)
+## Skills disponibles (19)
+
+### Bloque base (14 · análisis + funnel + journey + dashboard)
 
 | Sesión | Skill | Para qué sirve |
 |--------|-------|----------------|
 | S1 | `/data-questions` | Convierte preguntas vagas en preguntas accionables (5-por qués + acotación) |
 | S1 | `/info-vs-insight` | Separa información objetiva de insight accionable en un dataset |
 | S2 | `/funnel-mapper` | Dibuja un funnel de cliente con touchpoints y fuentes de datos por etapa |
-| S2 | `/zap-designer` | Diseña un Zap concreto (trigger + acciones + branches) para un objetivo |
+| S2 | `/zap-designer` | Diseña un Zap concreto · *DEPRECATED, usar `/make-scenario-builder`* |
 | S2 | `/journey-designer` | Diseña un journey de Marketing Automation listo para implementar |
 | S3 | `/data-quality-check` | Detecta los 10 errores comunes del análisis (sucios, outliers, estacionalidad, etc.) |
 | S3 | `/north-star-tree` | A partir de objetivos de negocio, devuelve north-star + árbol de métricas |
 | S3 | `/dashboard-builder` | Toma CSV + KPIs y genera un dashboard HTML+Chart.js publicable |
 | S3 | `/data-story` | Estructura hallazgos: Contexto → Hallazgo → Implicación → Recomendación → Próximo paso |
-| S3 | `/publish-pages` | Configura y publica un dashboard en GitHub Pages con URL pública |
-| S4 | `/rfm-segment` | Segmentación RFM (Recency, Frequency, Monetary) con acciones por segmento |
+| S3 | `/publish-pages` | Publica un index.html en Netlify (drag-and-drop) con URL pública |
+| S4 | `/rfm-segment` | Segmentación RFM (Recency, Frequency, Monetary) + cruce con canal de adquisición |
 | S4 | `/growth-loop` | Identifica el loop de crecimiento principal y sub-loops |
 | S5 | `/dashboard-judge` | Lee un dashboard + contexto y devuelve hallazgos, hipótesis y palancas |
 | S5 | `/prioritize-macro-micro` | Prioriza palancas Macro (etapa funnel) + Micro (Quick/Slow × Big/Small) |
+
+### Bloque demo S3 acquisition (5 · construyen el stack end-to-end en vivo)
+
+| Sesión | Skill | Para qué sirve |
+|--------|-------|----------------|
+| S3 | `/landing-builder` | Genera `index.html` self-contained de captación con look&feel del cliente |
+| S3 | `/form-builder` | Genera Apps Script `.gs` que crea Google Form + Sheet vinculada |
+| S3 | `/landing-deploy` | Reemplaza Form ID en HTML + deploy a Netlify producción |
+| S3 | `/make-scenario-builder` | Genera blueprint JSON Make importable (default Sheets → Brevo) |
+| S3 | `/hc-demo-build` | **Orquestador** · encadena las 4 anteriores con pausas para que el alumno ejecute Apps Script en script.google.com y blueprint en Make.com (~18 min para stack completo) |
 
 Todas siguen el pattern conversacional: **Acoge → Diagnose → Confirma → Produce → Itera**.
 
@@ -78,11 +92,11 @@ Endpoints y URLs auxiliares en [`endpoints/`](endpoints/) — ver [`endpoints/RE
 ```
 esic-skills-pack/
 ├── README.md                ← este archivo
-├── AGENTS.md                ← índice meta de las 14 skills (convención multi-cliente)
-├── skills/                  ← LA FUENTE DE VERDAD · 14 skills en markdown puro
+├── AGENTS.md                ← índice meta de las 19 skills (convención multi-cliente)
+├── skills/                  ← LA FUENTE DE VERDAD · 19 skills en markdown puro
 │   ├── data-questions/SKILL.md
 │   ├── info-vs-insight/SKILL.md
-│   ├── ... (14 directorios)
+│   ├── ... (19 directorios)
 ├── setup/                   ← adaptadores por cliente AI
 │   ├── claude-code.sh       ← symlink .claude/skills/ → ../skills/
 │   ├── codex.sh             ← adapta a .codex/agents/
