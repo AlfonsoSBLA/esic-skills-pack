@@ -1,12 +1,12 @@
 # AGENTS.md — esic-skills-pack
 
-Meta-índice de las 19 skills del curso ESIC MUDM0024. Convención compatible con múltiples clientes AI (Claude Code, Codex, Cursor, Teros, manual).
+Meta-índice de las 22 skills del curso ESIC MUDM0024. Convención compatible con múltiples clientes AI (Claude Code, Codex, Cursor, Teros, manual).
 
 ## Pattern conversacional común
 
 Todas las skills siguen el mismo pattern: **Acoge → Diagnose (2-4 preguntas) → Confirma → Produce → Itera**.
 
-## Inventario · 19 skills
+## Inventario · 22 skills
 
 ### Bloque base (14 skills · análisis · funnel · journey · dashboard)
 
@@ -36,6 +36,19 @@ Todas las skills siguen el mismo pattern: **Acoge → Diagnose (2-4 preguntas) �
 | `/landing-deploy` | S3 (demo profesor) | Reemplaza Form ID en HTML + deploy a Netlify producción (vía CLI/MCP del runtime) |
 | `/make-scenario-builder` | S3 (demo profesor) | Genera blueprint JSON Make importable (default Sheets → Brevo) + instrucciones de import |
 | `/hc-demo-build` | S3 (demo profesor) | **Orquestador**: encadena las 4 anteriores con pausas para que el alumno ejecute Apps Script en script.google.com y blueprint en Make.com. ~18 min para stack completo |
+
+### Bloque demo S4 retention (2 skills · extienden el stack S3 con RFM + win-back)
+
+| Nombre | Sesión | Para qué sirve |
+|---|---|---|
+| `/rfm-scenario-builder` | S4 (demo profesor) | Genera blueprint JSON Make.com con scoring R/F/M 1-5 (módulos SetVariable) + clasificación segmento canónico + Router 4-6 ramas (Champion/At Risk/Hibernating/Lost...) + acciones Brevo (Update Contact + Add to list) + opcional WhatsApp si Champion |
+| `/journey-templates` | S4 (demo profesor) | Genera 3-4 templates HTML email Brevo (uno por segmento priorizado) + specs de las Automations Brevo correspondientes (trigger lista · waits · condiciones if-opened) |
+
+### Bloque demo S5 dashboards (1 skill · cierra el flow con vista al CEO)
+
+| Nombre | Sesión | Para qué sirve |
+|---|---|---|
+| `/dashboard-from-sheet` | S5 (demo profesor) | Extiende `/dashboard-builder` con la capa "conectar a Sheet vivo via endpoint público gviz". Genera HTML con `fetch()` al Sheet + PapaParse + Chart.js auto-refresh cada 60min + indicador freshness + datos sintéticos de fallback si Sheet no conectado |
 
 ## Cómo cargar las skills en tu cliente
 

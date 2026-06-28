@@ -72,6 +72,19 @@ Después puedes verificar que las skills están disponibles. En Claude Code: `/h
 | S3 | `/make-scenario-builder` | Genera blueprint JSON Make importable (default Sheets → Brevo) |
 | S3 | `/hc-demo-build` | **Orquestador** · encadena las 4 anteriores con pausas para que el alumno ejecute Apps Script en script.google.com y blueprint en Make.com (~18 min para stack completo) |
 
+### Bloque demo S4 retention (2 · extienden el stack S3 con RFM + win-back)
+
+| Sesión | Skill | Para qué sirve |
+|--------|-------|----------------|
+| S4 | `/rfm-scenario-builder` | Genera blueprint JSON Make con scoring R/F/M 1-5 + clasificación segmento canónico + Router 4-6 ramas + acciones Brevo + WhatsApp opcional |
+| S4 | `/journey-templates` | Genera 3-4 templates HTML email Brevo por segmento + specs de Automations Brevo (trigger, waits, condiciones) |
+
+### Bloque demo S5 dashboards (1 · cierra el flow con vista al CEO)
+
+| Sesión | Skill | Para qué sirve |
+|--------|-------|----------------|
+| S5 | `/dashboard-from-sheet` | Extiende `/dashboard-builder` con capa de conectar al Sheet vivo via endpoint gviz · fetch + PapaParse + Chart.js + auto-refresh 60min + datos sintéticos de fallback |
+
 Todas siguen el pattern conversacional: **Acoge → Diagnose → Confirma → Produce → Itera**.
 
 Detalle por skill en [`AGENTS.md`](AGENTS.md).
@@ -92,11 +105,11 @@ Endpoints y URLs auxiliares en [`endpoints/`](endpoints/) — ver [`endpoints/RE
 ```
 esic-skills-pack/
 ├── README.md                ← este archivo
-├── AGENTS.md                ← índice meta de las 19 skills (convención multi-cliente)
-├── skills/                  ← LA FUENTE DE VERDAD · 19 skills en markdown puro
+├── AGENTS.md                ← índice meta de las 22 skills (convención multi-cliente)
+├── skills/                  ← LA FUENTE DE VERDAD · 22 skills en markdown puro
 │   ├── data-questions/SKILL.md
 │   ├── info-vs-insight/SKILL.md
-│   ├── ... (19 directorios)
+│   ├── ... (22 directorios)
 ├── setup/                   ← adaptadores por cliente AI
 │   ├── claude-code.sh       ← symlink .claude/skills/ → ../skills/
 │   ├── codex.sh             ← adapta a .codex/agents/
