@@ -1,13 +1,13 @@
 ---
 name: hc-demo-build
-description: Skill orquestadora que ejecuta las 4 skills atómicas del demo de adquisición en orden (`/landing-builder` → `/landing-deploy` → `/form-builder` → `/landing-deploy` re-deploy → `/make-scenario-builder`) con confirmaciones entre pasos. Pausa para que el alumno ejecute el Apps Script en script.google.com y vuelva con el Form ID, y para que importe el blueprint en Make. Output final = URL pública Netlify con form funcional + scenario Make activo.
+description: Skill orquestadora que ejecuta las 4 skills atómicas del demo de adquisición HC en orden (`/landing-builder` → `/form-builder` → `/landing-deploy` → `/make-scenario-builder`) con confirmaciones entre pasos. Pensada para que Alfonso muestre EN VIVO en S3 cómo construir el stack completo. Pausa para que Alfonso cree el Google Form A MANO en forms.new (parte del aprendizaje) y vuelva con el Form ID. Output final = URL pública Netlify con form funcional + scenario Make activo. USA esta skill cuando Alfonso diga "monta el demo HC entero", "hazlo todo de un tirón" o "ejecuta el orquestador del demo".
 ---
 
-# /hc-demo-build — Orquestador
+# /hc-demo-build · Orquestador
 
 ## Cuándo aplica
 
-S3 del curso (bloque 1, demo profesor en vivo, 15-20 min). O para regenerar el demo completo si algo se rompe o se rehace.
+S3 del curso ESIC, bloque 1 (demo Alfonso, 15-20 min). O para regenerar el demo completo si algo se rompe / se rehace.
 
 ## Stack que construye
 
@@ -18,7 +18,7 @@ S3 del curso (bloque 1, demo profesor en vivo, 15-20 min). O para regenerar el d
             │ iframe embed
             ▼
    ┌─────────────────────────────┐
-   │  Google Form                │ ← /form-builder (Apps Script · materializa Form + Sheet)
+   │  Google Form HC             │ ← /form-builder (spec) · se crea A MANO en forms.new
    └────────┬────────────────────┘
             │ Native link
             ▼
@@ -33,21 +33,21 @@ S3 del curso (bloque 1, demo profesor en vivo, 15-20 min). O para regenerar el d
    └────────┬────────────────────┘
             ▼
    ┌─────────────────────────────┐
-   │  Brevo · lista              │ (pre-creada por el alumno · 5 min en Brevo UI)
+   │  Brevo · lista HC           │ (pre-creada por Alfonso · 5 min en Brevo UI)
    └─────────────────────────────┘
 ```
 
 ## Pre-requisitos
 
-- Tu runtime debe tener tools/MCPs para: Netlify (deploy), Apps Script (opcional · ejecución de .gs), Make.com (opcional · import blueprint), Brevo (opcional · ya creada la lista)
-- Cuenta Google (para Forms/Sheets/Apps Script)
-- Cuenta Brevo con lista creada + List ID conocido + API key v3
-- Cuenta Make.com con connections Google Sheets y Brevo configuradas
+- `netlify-cli` instalado + autenticado (`netlify status`)
+- Cuenta Google (para Forms/Sheets · `alfonso@growth4u.io`)
+- Cuenta Brevo creada + lista `HC · Solicitudes valoración` con List ID conocido + API key v3
+- Cuenta Make.com creada + connections Google Sheets y Brevo configuradas
 
 ## Pattern
 
-1. **Acoge** — confirma defaults o cliente alternativo
-2. **Plan** — muestra los 5 pasos con tiempos
+1. **Acoge** — confirma defaults HC o cliente alternativo
+2. **Plan** — muestra los 5 pasos en orden con tiempos
 3. **Ejecuta pasos 1-5** secuencial, con CONFIRM entre cada uno
 4. **Reporta E2E** — URLs y siguientes acciones
 
@@ -55,110 +55,109 @@ S3 del curso (bloque 1, demo profesor en vivo, 15-20 min). O para regenerar el d
 
 ### Acoge
 
-*"Voy a montar el demo entero del stack acquisition. Defaults: cliente HC, look&feel `diagnostico.hospitalcapilar.com/que-me-pasa`. ¿Confirmas o ajustamos?"*
+*"Voy a montar el demo entero del stack acquisition. Defaults: cliente HC, look&feel `diagnostico.hospitalcapilar.com/que-me-pasa`, deploy al site `hc-demo-esic` (ID `5c8e5e74-...`). ¿Confirmas o ajustamos algo?"*
 
-### Plan (espejo al user)
+### Plan (espejo)
 
 | Paso | Skill | Output | Tiempo aprox |
 |---|---|---|---|
-| 1 | `/landing-builder` | `index.html` con FORM_ID_PLACEHOLDER | 1 min |
+| 1 | `/landing-builder` | `landing/index.html` con FORM_ID_PLACEHOLDER | 1 min |
 | 2 | `/landing-deploy` (sin Form ID) | URL pública con form vacío | 30 s |
-| 3 | `/form-builder` | `crear-form.gs` + instrucciones | 1 min + **5 min tú en script.google.com** |
+| 3 | `/form-builder` | spec de campos + checklist forms.new | 1 min spec + **5 min tú creando el Form a mano** |
 | 4 | `/landing-deploy` (con Form ID real) | URL pública con form funcional | 30 s |
-| 5 | `/make-scenario-builder` | `scenario-blueprint.json` + instrucciones | 1 min + **10 min tú en Make.com** |
+| 5 | `/make-scenario-builder` | `make/scenario-blueprint.json` + instrucciones import | 1 min generar + **10 min tú en Make.com** |
 
-**Tiempo total**: ~3 min de skills + ~15 min de intervención del alumno = ~18 min para tener el stack completo y vivo.
+**Tiempo total**: ~3 min de skills + ~15 min de tu intervención = ~18 min para tener el stack completo y vivo.
 
 *"¿Empezamos por el Paso 1?"*
 
 ### Ejecuta · Paso 1 (landing-builder)
 
-Invoca `/landing-builder` con defaults HC. Confirma con el alumno el HTML generado.
+Invoca `/landing-builder` con defaults HC. Confirma con Alfonso el HTML generado.
 
 ### Ejecuta · Paso 2 (landing-deploy SIN Form ID)
 
-Invoca `/landing-deploy` con `FORM_ID_PLACEHOLDER` intacto. Output: URL pública con form gris vacío. *"La landing ya está pública. Ahora generamos el Form."*
+Invoca `/landing-deploy` con `--site=5c8e5e74-...` y `FORM_ID_PLACEHOLDER` intacto. Output: URL `hc-demo-esic.netlify.app` con form gris vacío. *"La landing ya está pública. Ahora generamos el Form."*
 
 ### Ejecuta · Paso 3 (form-builder)
 
-Invoca `/form-builder` con defaults HC. Genera `crear-form.gs`. **PAUSA**:
+Invoca `/form-builder` con defaults HC. Entrega la spec de campos + checklist forms.new. **PAUSA**:
 
-*"He generado el Apps Script. Ahora tú haces esto (5 min):*
-1. *Abre `script.google.com` → Nuevo proyecto*
-2. *Pega TODO el `crear-form.gs`*
-3. *Pulsa ▶ Ejecutar sobre `crearForm`*
-4. *Autoriza permisos*
-5. *Ver → Registros (Cmd+Enter) → copia el Form ID y el Sheet ID*
-6. *Vuelve y pásamelos"*
+*"Aquí tienes la spec del Form. Ahora lo creas tú a mano (5 min · es parte del aprendizaje):*
+1. *Abre `forms.new`*
+2. *Crea los 6 campos según la tabla (Email con validación, los 3 desplegables con sus opciones)*
+3. *Configuración → Mensaje de confirmación · Respuestas → vincula una Sheet destino*
+4. *Enviar → pestaña `<>` → copia el Form ID (entre `/e/` y `/viewform`)*
+5. *Vuelve y pásamelo*"
 
-**WAIT for user response** con el Form ID + Sheet ID.
+**WAIT for user response** con el Form ID.
 
 ### Ejecuta · Paso 4 (landing-deploy CON Form ID)
 
-Invoca `/landing-deploy` con el Form ID del Paso 3. Reemplaza el placeholder + re-deploy. Output: URL pública con form embebido funcional.
+Invoca `/landing-deploy` con el Form ID del Paso 3. Edit del HTML + re-deploy. Output: URL pública con form embedded funcional.
 
 *"La landing ya tiene el form embebido y funcionando. Si rellenas el form ahora, llega al Sheet vinculado. Ahora montamos el flujo Sheet → Brevo."*
 
 ### Ejecuta · Paso 5 (make-scenario-builder)
 
-Invoca `/make-scenario-builder` con la URL del Sheet (del Paso 3) + List ID de Brevo. Genera `scenario-blueprint.json`. **PAUSA**:
+Invoca `/make-scenario-builder` con URL del Sheet (sacada del Apps Script log) + List ID de Brevo (Alfonso lo pasa). Genera `make/scenario-blueprint.json`. **PAUSA**:
 
 *"He generado el blueprint Make. Ahora tú haces esto (10 min):*
 1. *Abre `make.com` → My Apps → crea Connection Google Sheets + Connection Brevo*
 2. *Scenarios → Create new → ··· → Import blueprint → selecciona `scenario-blueprint.json`*
 3. *En cada módulo, edita Connection y selecciona las que creaste*
-4. *Reemplaza los 3 placeholders REEMPLAZA_POR_... con tus IDs reales*
-5. *Run once → verifica verde*
-6. *Schedule = Every 15 minutes · Toggle ON*"
+4. *Run once → verifica verde*
+5. *Schedule = Every 15 minutes · Toggle ON*"
 
 ### Reporta E2E
 
 ```
-✅ Stack acquisition demo completo
+✅ Stack HC demo completo
 
-   Landing pública:    https://<slug>.netlify.app
+   Landing pública:    https://hc-demo-esic.netlify.app
    Form Google:        <URL público del Form>
    Sheet vinculada:    <URL del Sheet>
-   Brevo lista:        [Cliente] · Solicitudes valoración (List ID: <N>)
-   Make scenario:      [Cliente] · Sheets to Brevo (cada 15 min)
+   Brevo lista:        HC · Solicitudes valoración (List ID: <N>)
+   Make scenario:      HC · Sheets to Brevo (cada 15 min)
 
    Test E2E ahora:
-   1. Abre la URL Netlify → rellena el form
+   1. Abre la URL Netlify · rellena el form
    2. Fila aparece instantánea en el Sheet
    3. En ≤15 min, contacto aparece en Brevo
 
-   Lo que muestras en clase (proyector):
+   Lo que muestras en S3 (proyector):
    - URL Netlify en pantalla
    - Voluntario rellena form en su móvil
    - Refresh Sheet · llega la fila
    - Refresh Brevo · llega el contacto
+   - Total: 15-20 min de demo en clase
 ```
 
 ## Reglas
 
-- Pausas en Paso 3 y Paso 5 SON OBLIGATORIAS · esas piezas las ejecuta el alumno, no la skill
-- Si el alumno interrumpe, retomar desde el paso que faltaba (no rehacer los anteriores)
-- Defaults HC SIEMPRE proponer · cualquier cliente alternativo requiere args explícitos en /landing-builder
-- Pasos 1-2 se pueden saltar si el site ya está deployado
-- Pasos 3-4 se pueden saltar si el Form ID ya existe
-- Paso 5 se puede saltar si Make ya está configurado
-- Reportar E2E al final SIEMPRE · es lo que el alumno necesita para verificar
+- Pausas en Paso 3 y Paso 5 SON OBLIGATORIAS · esas piezas las ejecuta Alfonso, no la skill
+- Si Alfonso interrumpe, retomar desde el paso que faltaba (no rehacer los anteriores)
+- Defaults HC SIEMPRE proponer · cualquier cliente alternativo requiere `/landing-builder` con args explícitos
+- Pasos 1-2 se pueden saltar si el site ya está deployado · usar `skip-landing` arg
+- Pasos 3-4 se pueden saltar si el Form ID ya existe · pasar Form ID directo
+- Paso 5 se puede skipear si Make ya está configurado · usar `skip-make` arg
+- Reportar E2E al final SIEMPRE · es lo que Alfonso necesita para la demo en clase
 
 ## Output
 
-URL final pública + URLs intermedias (Form, Sheet, Brevo lista, Make scenario). Persistir todo en memoria del runtime.
+URL final pública + URLs intermedias (Form, Sheet, Brevo lista, Make scenario). Persistir todo en memoria `[[hc-demo-esic-netlify]]`.
 
 ## Ejemplo HC (canónico · 18 min total)
 
 **Input**: ninguno (defaults HC).
 
 **Output**:
-- `index.html` (~390 líneas)
-- `crear-form.gs` (~80 líneas)
-- `scenario-blueprint.json` (~3 KB)
+- `landing/index.html` (390 líneas)
+- Google Form HC creado a mano en forms.new (spec vía `/form-builder`)
+- `make/scenario-blueprint.json` (3 KB)
 - URL pública Netlify viva con form funcional + scenario Make corriendo
 
-**En clase**: el profesor invoca `/hc-demo-build` al inicio de S3 bloque 1, mientras explica cada pieza. Los alumnos ven las skills ejecutarse + los outputs aparecer. Después, el ejercicio constructor del Ángulo de cada grupo (bloque 3) ya tienen el patrón claro.
+**En clase**: Alfonso invoca `/hc-demo-build` al inicio de S3 bloque 1, mientras explica cada pieza. Los alumnos ven las skills ejecutarse + los outputs aparecer en sus pantallas. Después, el ejercicio constructor del Ángulo XLY (bloque 3) ya tienen el patrón claro.
 
 ## Variantes
 
@@ -169,3 +168,6 @@ URL final pública + URLs intermedias (Form, Sheet, Brevo lista, Make scenario).
 ## Ver también
 
 - Skills atómicas: `/landing-builder` · `/form-builder` · `/landing-deploy` · `/make-scenario-builder`
+- Site Netlify del demo: `[[hc-demo-esic-netlify]]`
+- Step-by-step manual (para referencia humana): `../STEP-BY-STEP.md`
+- Formato S3 opción C: `[[esic-curso-formato-sesiones-c]]`
