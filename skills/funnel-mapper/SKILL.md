@@ -42,7 +42,7 @@ ETAPA 2: Consideration
 
 ### Itera
 
-*"¿Profundizo etapa? ¿Te paso a /zap-designer para conectar? ¿O a /north-star-tree?"*
+*"¿Profundizo etapa? ¿Te paso a /workflow-designer para conectar? ¿O a /north-star-tree?"*
 
 ## Reglas
 
@@ -50,7 +50,7 @@ ETAPA 2: Consideration
 - Cada etapa: touchpoint + fuente + métrica (los 3 obligatorios)
 - Marca dónde se rompe el flujo (gap manual)
 
-## Ejemplo HC
+## Ejemplo 1 · Hospital Capilar (one-shot)
 
 **Input**: clínica injerto capilar Madrid · one-shot 3.500€ · Meta+Google+Orgánico · HubSpot+Mailchimp+Typeform
 
@@ -60,3 +60,26 @@ ETAPA 2: Consideration
 - Conversion: Typeform (leads), Asesor cualifica (HubSpot), Cita (Calendly)
 - Decision: Presupuesto (HubSpot deal), Reserva pagada (Stripe)
 - ⚠ ROMPE en: Asesor → Mailchimp (manual)
+
+## Ejemplo 2 · Xuan Lan Yoga (suscripción B2C)
+
+**Input**: app yoga online · suscripción mensual/anual · Paid Search + Paid Social + App Stores + Orgánico (YouTube + SEO) + Email · HubSpot + Brevo + Make.com + GA4 + Mixpanel
+
+**Output**:
+- Awareness: Meta Ads · Google Ads · YouTube orgánico · SEO blog · App Stores (búsqueda) · referidos
+- Consideration: Landing pricing (sesiones GA), webinar gratis (leads HubSpot), descarga app (App Stores)
+- Activation: Sign-up free trial (HubSpot workflow), uso primeras 24h (Mixpanel events)
+- Conversion: Free trial → paid (Stripe + Brevo automation)
+- Retention M1-MN: Engagement semanal (logins · clases vistas), churn signal (>7 días sin login)
+- Revenue: Renovación mensual/anual (Stripe), upsell programas (HubSpot deals), tienda (Shopify)
+- ⚠ ROMPE en: App Stores → HubSpot (atribución de canal se pierde) · churn signal → win-back campaign (no automatizado)
+
+## Diferencias clave one-shot vs suscripción
+
+| Aspecto | One-shot (HC) | Suscripción (XLY) |
+|---|---|---|
+| Etapa decisión | "Conversion" termina el funnel | "Activation" empieza el resto del funnel |
+| Métrica clave | CAC + ticket único | LTV/CAC + churn + MRR |
+| Etapas críticas post-conversión | NONE (recompra años después) | Activation M0 + Retention M1-MN |
+| Funnel completo | 3-4 etapas | 5-6 etapas (con activation + retention) |
+| Dato más caro de medir | CR cita→paciente (offline) | Churn por cohort + cohort revenue retention |

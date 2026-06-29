@@ -48,7 +48,7 @@ DAY 14 · sin acción
 
 ### Itera
 
-*"¿Acorto journey? ¿Añado branch Champions vs At Risk? ¿Te lo paso a /zap-designer?"*
+*"¿Acorto journey? ¿Añado branch Champions vs At Risk? ¿Te lo paso a /workflow-designer?"*
 
 ## Reglas
 

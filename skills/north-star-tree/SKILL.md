@@ -56,7 +56,7 @@ GUARDRAILS
 - Min 2 guardrails (uno calidad, uno eficiencia)
 - Tiempo explícito en NS (por mes, etc.)
 
-## Ejemplo HC
+## Ejemplo 1 · Hospital Capilar (one-shot)
 
 **Input**: maximizar revenue · one-shot 3.500€ · capacidad 200 ops/mes · guardrails CAC<1000€, NPS>50
 
@@ -64,3 +64,39 @@ GUARDRAILS
 - NS: Pacientes nuevos cerrados / mes
 - ÁRBOL: NS = Tráfico × CR_landing × CR_form × % cualif × CR_cierre
 - GUARDRAILS: CAC < 1000€ · NPS > 50 · capacidad < 200/mes
+
+## Ejemplo 2 · Xuan Lan Yoga (suscripción B2C)
+
+**Input**: maximizar revenue · suscripción mensual/anual · sin límite operativo (digital) · guardrails LTV/CAC > 3.0 · churn M1 < 35% · NPS > 40
+
+**Output**:
+- NS: **Active Paying Users (APU) / fin de mes**
+- Justificación: APU captura simultáneamente nuevos activos + retención + reactivaciones. Es el número que mueve el MRR de forma directa. Revenue se mira aparte pero APU es la palanca.
+- ÁRBOL multiplicativo:
+  ```
+  APU_fin_mes = APU_inicio_mes
+                + Nuevos_activos (= Tráfico × CR_signup_to_trial × CR_trial_to_paid)
+                + Reactivados (= Cancelados_M-1 × tasa_winback)
+                − Churned (= APU_inicio_mes × churn_rate_mensual)
+  ```
+- INPUTS clave:
+  - **Tráfico**: spend × CPC_efectivo (por canal) + orgánico
+  - **CR signup→trial**: fricción del onboarding (UX + onboarding emails)
+  - **CR trial→paid**: valor percibido del producto en los primeros 14 días + pricing del paid
+  - **Tasa winback**: efectividad de las campañas de re-engagement
+  - **Churn mensual**: salud del producto + competencia + estacionalidad
+- GUARDRAILS:
+  - LTV/CAC > 3.0 (umbral salud unit economics)
+  - Churn M1 < 35% (umbral activation OK · si peor, problema serio de onboarding)
+  - NPS > 40 (proxy salud experiencia)
+  - Annual share > 30% del MRR (concentración riesgo en mensual = malo)
+
+## Diferencias clave one-shot vs suscripción
+
+| Aspecto | One-shot (HC) | Suscripción (XLY) |
+|---|---|---|
+| NS típica | Clientes cerrados / mes | Active Paying Users (APU) / mes |
+| Árbol | Multiplicativo simple (4-5 inputs) | Multiplicativo + términos de cohort (suma de altas, restas de churn) |
+| Restricción | Operativa (capacidad médica, agentes) | Producto (engagement, churn) |
+| Tiempo en NS | Por mes (corto plazo) | Por mes Y por cohort (LTV a 12-24m) |
+| Guardrail crítico | CAC techo | LTV/CAC ratio mínimo |

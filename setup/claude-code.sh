@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # Setup esic-skills-pack para Claude Code
-# Crea symlink .claude/skills/ → ../skills/ para que Claude Code cargue las 14 skills
+# Crea symlink .claude/skills/ → ../skills/ para que Claude Code cargue las 22 skills:
+#   - 14 skills de alumno (skills/data-questions, skills/funnel-mapper, ...)
+#   - 8 skills de profesor (skills/teacher/landing-builder, skills/teacher/hc-demo-build, ...)
 
 set -e
 
@@ -34,7 +36,8 @@ if [ -L ".claude/skills" ]; then
     echo "🚀 Próximo paso:"
     echo "   claude"
     echo ""
-    echo "   Las 14 skills estarán disponibles. Verifica con: /help"
+    echo "   Las 22 skills estarán disponibles (14 alumno + 8 profesor en teacher/)."
+    echo "   Verifica con: /help"
 else
     echo "❌ Error creando symlink. Revisa permisos."
     exit 1

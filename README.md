@@ -12,10 +12,8 @@ Cada skill condensa un proceso del curso para que puedas aplicarlo de forma ráp
 
 - Un cliente AI con acceso a un LLM bueno (**GPT-4o** · **Claude Sonnet 4.x** · **Gemini 1.5 Pro** o superior)
 - `git` instalado
-- Cuenta Netlify gratis (para publicar landings y dashboards · drag-and-drop, sin git)
-- Cuenta Make.com gratis (para hands-on de marketing automation en S3 · 1.000 ops/mes)
-- Cuenta Brevo gratis (email marketing · 300 emails/día · contactos ilimitados)
-- Cuenta Google (Forms + Sheets + Apps Script · todo gratis)
+- Cuenta GitHub gratis (con GitHub Pages activado, para publicar dashboards)
+- Cuenta Zapier gratis (para hands-on de marketing automation en S3)
 
 ---
 
@@ -41,71 +39,28 @@ Después puedes verificar que las skills están disponibles. En Claude Code: `/h
 
 ---
 
-## Skills disponibles (22 · 14 alumno + 8 profesor)
-
-> **Organización**: las 14 skills de **alumno** viven en `skills/<name>/` (las usas tú en tus ejercicios). Las 8 skills de **profesor** viven en `skills/teacher/<name>/` (las invoca Alfonso para construir EN VIVO los demos HC del curso · tú las observas en proyector y replicas el patrón en TU ángulo XLY).
-
-### Skills de alumno · 14 (`skills/<name>/`)
+## Skills disponibles (14)
 
 | Sesión | Skill | Para qué sirve |
 |--------|-------|----------------|
 | S1 | `/data-questions` | Convierte preguntas vagas en preguntas accionables (5-por qués + acotación) |
 | S1 | `/info-vs-insight` | Separa información objetiva de insight accionable en un dataset |
 | S2 | `/funnel-mapper` | Dibuja un funnel de cliente con touchpoints y fuentes de datos por etapa |
-| S2 | `/zap-designer` | Diseña un Zap concreto · *DEPRECATED, usar `/make-scenario-builder`* |
+| S2 | `/workflow-designer` | Diseña un Zap concreto (trigger + acciones + branches) para un objetivo |
 | S2 | `/journey-designer` | Diseña un journey de Marketing Automation listo para implementar |
 | S3 | `/data-quality-check` | Detecta los 10 errores comunes del análisis (sucios, outliers, estacionalidad, etc.) |
 | S3 | `/north-star-tree` | A partir de objetivos de negocio, devuelve north-star + árbol de métricas |
 | S3 | `/dashboard-builder` | Toma CSV + KPIs y genera un dashboard HTML+Chart.js publicable |
 | S3 | `/data-story` | Estructura hallazgos: Contexto → Hallazgo → Implicación → Recomendación → Próximo paso |
-| S3 | `/publish-pages` | Publica un index.html en Netlify (drag-and-drop) con URL pública |
-| S4 | `/rfm-segment` | Segmentación RFM (Recency, Frequency, Monetary) + cruce con canal de adquisición |
+| S3 | `/publish-pages` | Configura y publica un dashboard en GitHub Pages con URL pública |
+| S4 | `/rfm-segment` | Segmentación RFM (Recency, Frequency, Monetary) con acciones por segmento |
 | S4 | `/growth-loop` | Identifica el loop de crecimiento principal y sub-loops |
 | S5 | `/dashboard-judge` | Lee un dashboard + contexto y devuelve hallazgos, hipótesis y palancas |
 | S5 | `/prioritize-macro-micro` | Prioriza palancas Macro (etapa funnel) + Micro (Quick/Slow × Big/Small) |
 
-### Skills de profesor · 8 (`skills/teacher/<name>/`)
-
-Estas las invoca **Alfonso** para construir EN VIVO los demos HC en las sesiones S3 + S4 + S5. Tú las observas en proyector y replicas el patrón en TU ángulo XLY con las skills de alumno de arriba.
-
-#### S3 acquisition (5 · stack landing → form → sheet → make → brevo)
-
-| Sesión | Skill | Para qué sirve |
-|--------|-------|----------------|
-| S3 | `/landing-builder` | Genera `index.html` self-contained de captación con look&feel del cliente |
-| S3 | `/form-builder` | Genera Apps Script `.gs` que crea Google Form + Sheet vinculada |
-| S3 | `/landing-deploy` | Reemplaza Form ID en HTML + deploy a Netlify producción |
-| S3 | `/make-scenario-builder` | Genera blueprint JSON Make importable (default Sheets → Brevo) |
-| S3 | `/hc-demo-build` | **Orquestador** · encadena las 4 anteriores con pausas para script.google.com y Make.com (~18 min para stack completo) |
-
-#### S4 retention (2 · extienden el stack S3 con RFM + win-back)
-
-| Sesión | Skill | Para qué sirve |
-|--------|-------|----------------|
-| S4 | `/rfm-scenario-builder` | Genera blueprint JSON Make con scoring R/F/M 1-5 + clasificación segmento canónico + Router 4-6 ramas + acciones Brevo + WhatsApp opcional |
-| S4 | `/journey-templates` | Genera 3-4 templates HTML email Brevo por segmento + specs de Automations Brevo (trigger, waits, condiciones) |
-
-#### S5 dashboards (1 · cierra el flow con vista al CEO)
-
-| Sesión | Skill | Para qué sirve |
-|--------|-------|----------------|
-| S5 | `/dashboard-from-sheet` | Extiende `/dashboard-builder` con capa de conectar al Sheet vivo via endpoint gviz · fetch + PapaParse + Chart.js + auto-refresh 60min + datos sintéticos de fallback |
-
 Todas siguen el pattern conversacional: **Acoge → Diagnose → Confirma → Produce → Itera**.
 
 Detalle por skill en [`AGENTS.md`](AGENTS.md).
-
-### Referencia oficial de Make · vendored (`skills/vendor/make-official/`)
-
-Las **5 skills oficiales de Make.com** (org `integromat`, MIT, v0.1.7) están incluidas tal cual como
-material de referencia profundo para Marketing Automation: `make-scenario-building`,
-`make-module-configuring`, `make-mcp-reference`, `make-api-shell-connection-workflow`,
-`make-e2b-code-execution`.
-
-> ⚠️ Asumen el **servidor MCP de Make** conectado. El alumno en free tier (copy-paste, sin MCP) usa
-> las skills propias `/make-scenario-builder` (S3) y `/rfm-scenario-builder` (S4), que emiten blueprint
-> JSON importable. Las oficiales son la doctrina/PORQUÉ (IML, routing, arquitectura). No se solapan.
-> Copia congelada — ver [`skills/vendor/make-official/VENDORED.md`](skills/vendor/make-official/VENDORED.md).
 
 ---
 
@@ -123,12 +78,11 @@ Endpoints y URLs auxiliares en [`endpoints/`](endpoints/) — ver [`endpoints/RE
 ```
 esic-skills-pack/
 ├── README.md                ← este archivo
-├── AGENTS.md                ← índice meta de las 22 skills (convención multi-cliente)
-├── skills/                  ← LA FUENTE DE VERDAD · 22 skills en markdown puro
+├── AGENTS.md                ← índice meta de las 14 skills (convención multi-cliente)
+├── skills/                  ← LA FUENTE DE VERDAD · 14 skills en markdown puro
 │   ├── data-questions/SKILL.md
 │   ├── info-vs-insight/SKILL.md
-│   ├── ... (22 directorios)
-│   └── vendor/make-official/ ← 6 skills oficiales de Make (MIT, vendored · ver VENDORED.md)
+│   ├── ... (14 directorios)
 ├── setup/                   ← adaptadores por cliente AI
 │   ├── claude-code.sh       ← symlink .claude/skills/ → ../skills/
 │   ├── codex.sh             ← adapta a .codex/agents/
