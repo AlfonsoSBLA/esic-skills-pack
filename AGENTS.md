@@ -6,9 +6,11 @@ Meta-índice de las 22 skills del curso ESIC MUDM0024. Convención compatible co
 
 Todas las skills siguen el mismo pattern: **Acoge → Diagnose (2-4 preguntas) → Confirma → Produce → Itera**.
 
-## Inventario · 22 skills
+## Inventario · 22 skills (14 alumno + 8 profesor)
 
-### Bloque base (14 skills · análisis · funnel · journey · dashboard)
+Organización: las **14 skills de alumno** viven en `skills/<name>/` y las **8 skills de profesor** (las que construyen los demos en vivo HC del curso) viven en `skills/teacher/<name>/`. Esa separación es deliberada: el alumno **invoca** las suyas y **observa** las del profesor.
+
+### Bloque base · 14 skills de alumno (`skills/<name>/`)
 
 | Nombre | Sesión | Para qué sirve |
 |---|---|---|
@@ -27,7 +29,11 @@ Todas las skills siguen el mismo pattern: **Acoge → Diagnose (2-4 preguntas) �
 | `/growth-loop` | S4 | Identifica loop principal + sub-loops + input que escala + guardrail |
 | `/dashboard-judge` | S5 | Lee dashboard + devuelve hallazgos + hipótesis + palancas + experimento sí/no |
 
-### Bloque demo S3 acquisition (5 skills · construyen el stack end-to-end en vivo)
+### Bloque profesor · 8 skills (`skills/teacher/<name>/`)
+
+Estas skills las **invoca el profesor** (Alfonso) para construir EN VIVO el demo HC end-to-end durante las sesiones S3 + S4 + S5. El alumno las ve actuar en proyector y replica el patrón en SU ángulo XLY.
+
+#### S3 acquisition (5 skills · stack landing → form → sheet → make → brevo)
 
 | Nombre | Sesión | Para qué sirve |
 |---|---|---|
@@ -37,14 +43,14 @@ Todas las skills siguen el mismo pattern: **Acoge → Diagnose (2-4 preguntas) �
 | `/make-scenario-builder` | S3 (demo profesor) | Genera blueprint JSON Make importable (default Sheets → Brevo) + instrucciones de import |
 | `/hc-demo-build` | S3 (demo profesor) | **Orquestador**: encadena las 4 anteriores con pausas para que el alumno ejecute Apps Script en script.google.com y blueprint en Make.com. ~18 min para stack completo |
 
-### Bloque demo S4 retention (2 skills · extienden el stack S3 con RFM + win-back)
+#### S4 retention (2 skills · extienden el stack S3 con RFM + win-back)
 
 | Nombre | Sesión | Para qué sirve |
 |---|---|---|
 | `/rfm-scenario-builder` | S4 (demo profesor) | Genera blueprint JSON Make.com con scoring R/F/M 1-5 (módulos SetVariable) + clasificación segmento canónico + Router 4-6 ramas (Champion/At Risk/Hibernating/Lost...) + acciones Brevo (Update Contact + Add to list) + opcional WhatsApp si Champion |
 | `/journey-templates` | S4 (demo profesor) | Genera 3-4 templates HTML email Brevo (uno por segmento priorizado) + specs de las Automations Brevo correspondientes (trigger lista · waits · condiciones if-opened) |
 
-### Bloque demo S5 dashboards (1 skill · cierra el flow con vista al CEO)
+#### S5 dashboards (1 skill · cierra el flow con vista al CEO)
 
 | Nombre | Sesión | Para qué sirve |
 |---|---|---|
@@ -64,19 +70,30 @@ Todas las skills siguen el mismo pattern: **Acoge → Diagnose (2-4 preguntas) �
 
 ```
 esic-skills-pack/
-├── README.md                ← punto de entrada
-├── AGENTS.md                ← este archivo (índice meta)
-├── skills/                  ← LA FUENTE DE VERDAD
-│   ├── data-questions/SKILL.md
-│   ├── info-vs-insight/SKILL.md
+├── README.md                    ← punto de entrada
+├── AGENTS.md                    ← este archivo (índice meta)
+├── skills/                      ← LA FUENTE DE VERDAD
+│   ├── data-questions/SKILL.md  ← 14 skills de alumno (skills/<name>/)
+│   ├── funnel-mapper/SKILL.md
+│   ├── dashboard-builder/SKILL.md
 │   ├── ... (las 14)
-├── setup/                   ← adaptadores por cliente
+│   └── teacher/                 ← 8 skills de profesor (skills/teacher/<name>/)
+│       ├── landing-builder/SKILL.md
+│       ├── form-builder/SKILL.md
+│       ├── landing-deploy/SKILL.md
+│       ├── make-scenario-builder/SKILL.md
+│       ├── hc-demo-build/SKILL.md
+│       ├── rfm-scenario-builder/SKILL.md
+│       ├── journey-templates/SKILL.md
+│       └── dashboard-from-sheet/SKILL.md
+│   └── vendor/make-official/    ← 5 skills oficiales de Make (MIT · vendored · VENDORED.md)
+├── setup/                       ← adaptadores por cliente
 │   ├── claude-code.sh
 │   ├── codex.sh
 │   ├── cursor.md
 │   └── manual.md
-├── data/                    ← datasets Hospital Capilar
-└── endpoints/               ← mocks para Zapier/MCP
+├── data/                        ← datasets Hospital Capilar
+└── endpoints/                   ← mocks para webhooks/MCP
 ```
 
 ## Filosofía

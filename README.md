@@ -41,9 +41,11 @@ Después puedes verificar que las skills están disponibles. En Claude Code: `/h
 
 ---
 
-## Skills disponibles (19)
+## Skills disponibles (22 · 14 alumno + 8 profesor)
 
-### Bloque base (14 · análisis + funnel + journey + dashboard)
+> **Organización**: las 14 skills de **alumno** viven en `skills/<name>/` (las usas tú en tus ejercicios). Las 8 skills de **profesor** viven en `skills/teacher/<name>/` (las invoca Alfonso para construir EN VIVO los demos HC del curso · tú las observas en proyector y replicas el patrón en TU ángulo XLY).
+
+### Skills de alumno · 14 (`skills/<name>/`)
 
 | Sesión | Skill | Para qué sirve |
 |--------|-------|----------------|
@@ -62,7 +64,11 @@ Después puedes verificar que las skills están disponibles. En Claude Code: `/h
 | S5 | `/dashboard-judge` | Lee un dashboard + contexto y devuelve hallazgos, hipótesis y palancas |
 | S5 | `/prioritize-macro-micro` | Prioriza palancas Macro (etapa funnel) + Micro (Quick/Slow × Big/Small) |
 
-### Bloque demo S3 acquisition (5 · construyen el stack end-to-end en vivo)
+### Skills de profesor · 8 (`skills/teacher/<name>/`)
+
+Estas las invoca **Alfonso** para construir EN VIVO los demos HC en las sesiones S3 + S4 + S5. Tú las observas en proyector y replicas el patrón en TU ángulo XLY con las skills de alumno de arriba.
+
+#### S3 acquisition (5 · stack landing → form → sheet → make → brevo)
 
 | Sesión | Skill | Para qué sirve |
 |--------|-------|----------------|
@@ -70,16 +76,16 @@ Después puedes verificar que las skills están disponibles. En Claude Code: `/h
 | S3 | `/form-builder` | Genera Apps Script `.gs` que crea Google Form + Sheet vinculada |
 | S3 | `/landing-deploy` | Reemplaza Form ID en HTML + deploy a Netlify producción |
 | S3 | `/make-scenario-builder` | Genera blueprint JSON Make importable (default Sheets → Brevo) |
-| S3 | `/hc-demo-build` | **Orquestador** · encadena las 4 anteriores con pausas para que el alumno ejecute Apps Script en script.google.com y blueprint en Make.com (~18 min para stack completo) |
+| S3 | `/hc-demo-build` | **Orquestador** · encadena las 4 anteriores con pausas para script.google.com y Make.com (~18 min para stack completo) |
 
-### Bloque demo S4 retention (2 · extienden el stack S3 con RFM + win-back)
+#### S4 retention (2 · extienden el stack S3 con RFM + win-back)
 
 | Sesión | Skill | Para qué sirve |
 |--------|-------|----------------|
 | S4 | `/rfm-scenario-builder` | Genera blueprint JSON Make con scoring R/F/M 1-5 + clasificación segmento canónico + Router 4-6 ramas + acciones Brevo + WhatsApp opcional |
 | S4 | `/journey-templates` | Genera 3-4 templates HTML email Brevo por segmento + specs de Automations Brevo (trigger, waits, condiciones) |
 
-### Bloque demo S5 dashboards (1 · cierra el flow con vista al CEO)
+#### S5 dashboards (1 · cierra el flow con vista al CEO)
 
 | Sesión | Skill | Para qué sirve |
 |--------|-------|----------------|
@@ -88,6 +94,18 @@ Después puedes verificar que las skills están disponibles. En Claude Code: `/h
 Todas siguen el pattern conversacional: **Acoge → Diagnose → Confirma → Produce → Itera**.
 
 Detalle por skill en [`AGENTS.md`](AGENTS.md).
+
+### Referencia oficial de Make · vendored (`skills/vendor/make-official/`)
+
+Las **5 skills oficiales de Make.com** (org `integromat`, MIT, v0.1.7) están incluidas tal cual como
+material de referencia profundo para Marketing Automation: `make-scenario-building`,
+`make-module-configuring`, `make-mcp-reference`, `make-api-shell-connection-workflow`,
+`make-e2b-code-execution`.
+
+> ⚠️ Asumen el **servidor MCP de Make** conectado. El alumno en free tier (copy-paste, sin MCP) usa
+> las skills propias `/make-scenario-builder` (S3) y `/rfm-scenario-builder` (S4), que emiten blueprint
+> JSON importable. Las oficiales son la doctrina/PORQUÉ (IML, routing, arquitectura). No se solapan.
+> Copia congelada — ver [`skills/vendor/make-official/VENDORED.md`](skills/vendor/make-official/VENDORED.md).
 
 ---
 
@@ -110,6 +128,7 @@ esic-skills-pack/
 │   ├── data-questions/SKILL.md
 │   ├── info-vs-insight/SKILL.md
 │   ├── ... (22 directorios)
+│   └── vendor/make-official/ ← 6 skills oficiales de Make (MIT, vendored · ver VENDORED.md)
 ├── setup/                   ← adaptadores por cliente AI
 │   ├── claude-code.sh       ← symlink .claude/skills/ → ../skills/
 │   ├── codex.sh             ← adapta a .codex/agents/
