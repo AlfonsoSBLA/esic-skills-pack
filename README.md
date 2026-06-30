@@ -46,7 +46,7 @@ Después puedes verificar que las skills están disponibles. En Claude Code: `/h
 | S1 | `/data-questions` | Convierte preguntas vagas en preguntas accionables (5-por qués + acotación) |
 | S1 | `/info-vs-insight` | Separa información objetiva de insight accionable en un dataset |
 | S2 | `/funnel-mapper` | Dibuja un funnel de cliente con touchpoints y fuentes de datos por etapa |
-| S2 | `/workflow-designer` | Diseña un Zap concreto (trigger + acciones + branches) para un objetivo |
+| S2 | `/workflow-designer` | Diseña un scenario concreto en Make.com (trigger + acciones + branches) para un objetivo |
 | S2 | `/journey-designer` | Diseña un journey de Marketing Automation listo para implementar |
 | S3 | `/data-quality-check` | Detecta los 10 errores comunes del análisis (sucios, outliers, estacionalidad, etc.) |
 | S3 | `/north-star-tree` | A partir de objetivos de negocio, devuelve north-star + árbol de métricas |
