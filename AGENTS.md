@@ -15,12 +15,12 @@ Todas las skills siguen el mismo pattern: **Acoge → Diagnose (2-4 preguntas) �
 | `/data-story` | S2 | Estructura narrativa 5 pasos: Contexto → Hallazgo → Implicación → Recomendación → Próximo paso |
 | `/prioritize-macro-micro` | S2 | Prioriza palancas: Macro (etapa funnel) + Micro (Quick/Slow × Big/Small) |
 | `/funnel-mapper` | S3 | Mapea funnel del cliente con touchpoints + fuentes de datos por etapa |
-| `/workflow-designer` | S3 | Diseña 1 Zap concreto en Zapier (trigger + acciones + branches) |
+| `/workflow-designer` | S3 | Diseña 1 scenario concreto en Make.com (trigger + acciones + branches) |
 | `/journey-designer` | S3 / S4 | Diseña journey lifecycle (welcome → onboarding → win-back) |
 | `/data-quality-check` | S3 | Audita dataset contra los 10 errores comunes |
 | `/north-star-tree` | S3 | North-star metric + árbol de inputs multiplicativos + guardrails |
 | `/dashboard-builder` | S3 / S4 | Genera index.html con Chart.js publicable (4 preguntas: KPI hero, eje X, comparativa, filtros) |
-| `/publish-pages` | S3 / S4 | Publica index.html en GitHub Pages con URL pública |
+| `/publish-pages` | S3 / S4 | Publica index.html en Netlify (drag-and-drop) con URL pública |
 | `/rfm-segment` | S4 | Segmenta clientes en 8 segmentos RFM canónicos + acción por segmento |
 | `/growth-loop` | S4 | Identifica loop principal + sub-loops + input que escala + guardrail |
 | `/dashboard-judge` | S5 | Lee dashboard + devuelve hallazgos + hipótesis + palancas + experimento sí/no |
@@ -50,7 +50,7 @@ esic-skills-pack/
 │   ├── cursor.md
 │   └── manual.md
 ├── data/                    ← datasets Hospital Capilar
-└── endpoints/               ← mocks para Zapier/MCP
+└── endpoints/               ← mocks para Make.com/MCP
 ```
 
 ## Filosofía
@@ -63,5 +63,5 @@ Si mañana sale un cliente nuevo (Claude 6, Codex 3, lo que sea), añades `setup
 
 - Un cliente AI con acceso a un LLM bueno (GPT-4o · Claude Sonnet 4.x · Gemini 1.5 Pro o superior)
 - `git` instalado
-- Cuenta GitHub gratis (para publicar dashboards en Pages)
-- Cuenta Zapier gratis (para hands-on S3)
+- Cuenta Netlify gratis (para publicar dashboards y landings · drag-and-drop)
+- Cuenta Make.com gratis (para hands-on S3)

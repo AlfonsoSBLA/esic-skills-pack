@@ -12,8 +12,8 @@ Cada skill condensa un proceso del curso para que puedas aplicarlo de forma ráp
 
 - Un cliente AI con acceso a un LLM bueno (**GPT-4o** · **Claude Sonnet 4.x** · **Gemini 1.5 Pro** o superior)
 - `git` instalado
-- Cuenta GitHub gratis (con GitHub Pages activado, para publicar dashboards)
-- Cuenta Zapier gratis (para hands-on de marketing automation en S3)
+- Cuenta Netlify gratis (para publicar dashboards y landings · drag-and-drop, sin tarjeta)
+- Cuenta Make.com gratis (para hands-on de marketing automation en S3)
 
 ---
 
@@ -52,7 +52,7 @@ Después puedes verificar que las skills están disponibles. En Claude Code: `/h
 | S3 | `/north-star-tree` | A partir de objetivos de negocio, devuelve north-star + árbol de métricas |
 | S3 | `/dashboard-builder` | Toma CSV + KPIs y genera un dashboard HTML+Chart.js publicable |
 | S3 | `/data-story` | Estructura hallazgos: Contexto → Hallazgo → Implicación → Recomendación → Próximo paso |
-| S3 | `/publish-pages` | Configura y publica un dashboard en GitHub Pages con URL pública |
+| S3 | `/publish-pages` | Configura y publica un dashboard o landing en Netlify (drag-and-drop) con URL pública |
 | S4 | `/rfm-segment` | Segmentación RFM (Recency, Frequency, Monetary) con acciones por segmento |
 | S4 | `/growth-loop` | Identifica el loop de crecimiento principal y sub-loops |
 | S5 | `/dashboard-judge` | Lee un dashboard + contexto y devuelve hallazgos, hipótesis y palancas |
