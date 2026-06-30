@@ -278,7 +278,7 @@ Ops/mes estimadas: 80 leads × 6 ops = 480 ops (cabe en free)
 
 ## Nota stack v4
 
-- Stack del curso: **Make.com Free** (orquestador · 1.000 ops/mes) + Brevo (email · 300/día) + Hunter (enrichment · 25 búsq + 50 verify/mes) + Netlify (hosting · drag-and-drop) + GA4 (analytics · free) + WhatsApp Teros nativa
+- Stack del curso: **Make.com Free** (orquestador · 1.000 ops/mes) + Brevo (email · 300/día) + Hunter (enrichment · 25 búsq + 50 verify/mes) + Netlify (hosting · CLI/API) + GA4 (analytics · free) + WhatsApp Teros nativa
 - **NO usamos Zapier** porque Zapier Free 2026 quitó webhooks y multi-step
 - La skill funciona conceptualmente para Zapier, n8n o cualquier orquestador · cambia solo la sintaxis del blueprint
 

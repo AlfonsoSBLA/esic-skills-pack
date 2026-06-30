@@ -1,6 +1,6 @@
 ---
 name: dashboard-builder
-description: Skill conversacional que genera un dashboard HTML self-contained con Chart.js a partir de un dataset + KPIs. Hace preguntas sobre KPI hero, eje, comparativa y filtros ANTES de generar. Output listo para drag-and-drop a Netlify.
+description: Skill conversacional que genera un dashboard HTML self-contained con Chart.js a partir de un dataset + KPIs. Hace preguntas sobre KPI hero, eje, comparativa y filtros ANTES de generar. Output listo para publicar en Netlify vía /publish-pages (CLI/API).
 ---
 
 # /dashboard-builder — Conversacional
@@ -159,7 +159,7 @@ Cada ángulo del trabajo grupal tiene un KPI hero + tipo de chart específico. L
 
 ## Handoff típico
 
-→ Tras generar el HTML, pasa a `/publish-pages` para drag-and-drop a Netlify y obtener URL pública.
+→ Tras generar el HTML, pasa a `/publish-pages` para publicarlo en Netlify (CLI/API) y obtener URL pública.
 → Si en la itera el alumno quiere VALIDAR si el dashboard es bueno, pasa a `/dashboard-judge`.
 
 ## Estado de la skill
