@@ -1,17 +1,21 @@
 ---
 name: publish-pages
-description: Skill conversacional que publica un HTML self-contained en Netlify con URL pública via drag-and-drop. Hace preguntas sobre site name, dominio personalizado y permisos ANTES de publicar. Antes apuntaba a GitHub Pages · renombrada conceptualmente en v4 (stack v4 usa Netlify porque alumnos no tienen GitHub Pro).
+description: Skill conversacional que publica un HTML self-contained (dashboard o landing) en Netlify con URL pública vía Netlify CLI/API — el deploy es programático (lo sube el agente con la API de Netlify), NO drag-and-drop manual. Pregunta site name, dominio y permisos ANTES de publicar. USA esta skill cuando el alumno quiera publicar, subir o desplegar un dashboard o una landing y obtener una URL pública.
 ---
 
 # /publish-pages — Conversacional
 
+## Qué hace y cómo
+
+Publica un `index.html` self-contained en Netlify y devuelve una URL pública. **El deploy es programático**: vía la **API de Netlify** (tu agente en Teros la llama por su conexión/MCP) o vía **`netlify-cli`** si corres en local. Nada de arrastrar carpetas a mano — el agente sube los archivos por API.
+
 ## Pattern
 
-1. **Acoge** — confirma archivo a publicar (debe ser HTML self-contained · dame el path o sube el zip)
+1. **Acoge** — confirma el folder/HTML a publicar (debe ser HTML self-contained · dame el path)
 2. **Diagnose** — 3 preguntas
 3. **Confirma** — espejo
-4. **Produce** — instrucciones de drag-and-drop + URL final
-5. **Itera** — ¿iteramos HTML antes de compartir?
+4. **Produce** — deploy vía Netlify CLI/API + URL final
+5. **Itera** — re-deploy al MISMO site (misma URL)
 
 ## Flujo
 
@@ -29,90 +33,79 @@ description: Skill conversacional que publica un HTML self-contained en Netlify 
 
 ### Produce
 
-Instrucciones paso a paso (drag-and-drop · 30 segundos):
+Deploy programático a Netlify. Dos caminos según dónde corras:
 
+**A · Vía API de Netlify (alumnos en Teros · preferido)**
+
+El agente sube el sitio con la API de deploys de Netlify:
+1. Crea (si no existe) o referencia el site por su `site_id`.
+2. Sube el folder (los archivos, o un `.zip` del folder) al endpoint de deploys de Netlify.
+3. Netlify responde con la URL pública (`https://{site-name}.netlify.app`).
+
+Necesitas un **Netlify Personal Access Token** (Netlify → User settings → Applications → New access token). Tu agente lo usa como `Authorization: Bearer <token>`. En el curso, la conexión de Netlify se configura en S3 (API keys).
+
+**B · Vía netlify-cli (si corres en local)**
+
+```bash
+# primera vez · crear el site:
+netlify sites:create --name <site-name>
+
+# desplegar (o re-desplegar) a producción:
+netlify deploy --prod --dir=<folder> --site=<site-id>
 ```
-1. Asegurar HTML self-contained
-   - index.html debe contener TODO (CSS inline · JS inline o CDN)
-   - Cero deps externas locales
-   - Si hay imágenes: zip con `index.html` + `/assets/`
 
-2. Empaquetar
-   - Carpeta con `index.html` (mínimo)
-   - Comprimir a .zip si hay más assets
+Requiere `netlify-cli` instalado + `netlify login` (o `NETLIFY_AUTH_TOKEN` en el entorno).
 
-3. Drag-and-drop
-   - Abrir https://app.netlify.com
-   - Login (o sign up free · sin tarjeta)
-   - Arrastrar la carpeta o .zip al área "Drag and drop your site folder"
-   - Esperar 30 segundos
-
-4. Personalizar URL
-   - Site settings → Change site name
-   - Poner el site name elegido en Q1
-   - URL final: https://{site-name}.netlify.app
-
-5. (Opcional) Dominio personalizado
-   - Domain management → Add custom domain
-   - Configurar CNAME en tu DNS apuntando a Netlify
-   - Esperar propagación 5-30 min
-
-6. Verificar
-   - Abrir URL en incógnito
-   - Test en móvil (los CEOs revisan dashboards desde móvil)
-   - Compartir URL
-```
+**Output (ambos caminos):**
+- URL pública: `https://{site-name}.netlify.app`
+- Site ID (para re-deploys futuros)
+- (CLI) Deploy ID
 
 ### Itera
 
-*"¿La URL funciona en móvil? ¿Necesitas iterar el HTML? Para iterar: editas el HTML local + vuelves a hacer drag-and-drop al MISMO site (Netlify lo sobrescribe · misma URL · cero downtime). Para publicar a otro Netlify de un compañero del grupo: dale acceso desde Site settings → Members."*
+*"¿La URL funciona en móvil? ¿Iteramos el HTML? Para iterar: editas el HTML y vuelves a desplegar al **MISMO `site_id`** (misma URL · Netlify sobrescribe el deploy · cero downtime). No creas un site nuevo cada vez. Para dar acceso a un compañero del grupo: Site settings → Members."*
 
 ## Reglas
 
 - HTML debe ser **self-contained** · si llama assets externos locales, fallará
-- Site name único en Netlify (si está cogido, Netlify te avisa)
-- Free tier: 100 GB bandwidth/mes · sobra para los dashboards del curso
-- Para iterar: drag-and-drop al MISMO site reescribe el deploy (no crea uno nuevo)
-- Cero costes mientras no necesites: SSL custom domain · server-side rendering · forms backend
+- **Deploy al MISMO `site_id`** para iterar (no crear sites duplicados en cada cambio)
+- Credenciales: Netlify **PAT** (API) o `netlify login` / `NETLIFY_AUTH_TOKEN` (CLI). **Nunca** hardcodear el token en el HTML ni commitearlo a git
+- Site name único en Netlify (si está cogido, Netlify avisa · prueba `<slug>-2026`)
+- Free tier: 100 GB bandwidth/mes · sobra para los dashboards/landings del curso
+- Público por defecto · privado = Netlify Identity (Q3)
 
 ## Failure modes comunes
 
 | Error | Causa | Fix |
 |---|---|---|
-| "Page not found" tras drop | Falta `index.html` en raíz | Verificar que `index.html` está en la raíz del zip/carpeta · NO dentro de una subcarpeta |
+| "Page not found" tras deploy | `index.html` no está en la raíz del folder/zip | Verificar que `index.html` está en la raíz · NO dentro de una subcarpeta |
+| 401 / 403 al desplegar | Token inválido o sin permisos | Regenera el PAT (API) o re-loguea `netlify login` (CLI) |
 | Charts vacíos | Chart.js sin CDN o ad-blocker | Verificar `<script src="https://cdn.jsdelivr.net/npm/chart.js">` |
 | CSS no aplica | Estilos en archivo aparte no incluido | Inlinearlos con `<style>` |
-| URL "stupendous-tapir-12345" | No has cambiado el site name | Site settings → Change site name |
+| URL "stupendous-tapir-12345" | No fijaste el site name | `sites:create --name <slug>` o Site settings → Change site name |
 | Cambios no se ven | Cache navegador | `Cmd+Shift+R` o ventana incógnita |
-| 401 unexpectedly | Has activado Netlify Identity sin querer | Site settings → Identity → disable |
+| 401 al abrir la página | Netlify Identity activado sin querer | Site settings → Identity → disable |
 
 ## Ejemplo Xuan Lan Yoga (Ángulo 1)
 
 **Input**:
 - Archivo: `dashboard-xly-mix-canales.html` (generado por `/dashboard-builder`)
-- Site name: `xly-mix-canales-q4-2025`
-- Sin dominio propio
-- Público
+- Site name: `xly-mix-canales-q4-2025` · sin dominio propio · público
 
 **Output**:
-- URL final: `https://xly-mix-canales-q4-2025.netlify.app`
-- Tiempo deploy: ~30 segundos
-- Compartible al CEO de Xuan Lan en 1 click
+- Deploy vía API Netlify (el agente sube el folder) → URL `https://xly-mix-canales-q4-2025.netlify.app`
+- Site ID guardado para re-deploys
 
 ## Ejemplo Hospital Capilar (one-shot)
 
-**Input**:
-- Archivo: `dashboard-hc-adquisicion.html`
-- Site name: `hc-adquisicion-2025`
-- Sin dominio propio · público
+**Input**: `dashboard-hc-adquisicion.html` · site name `hc-adquisicion-2025` · público
 
-**Output**: `https://hc-adquisicion-2025.netlify.app` en 2-3 min
+**Output**: `https://hc-adquisicion-2025.netlify.app` · deploy por API/CLI
 
 ## Nota stack v4
 
-- Stack del curso: **Netlify free** (no GitHub Pages · alumnos no tienen GitHub Pro · Netlify es drag-and-drop sin git)
-- El workflow tradicional con repo + Pages sigue siendo válido si el alumno YA tiene el repo · esta skill recomienda Netlify por velocidad y simplicidad
-- Compatible con: Vercel · Cloudflare Pages · Surge.sh · cualquier static host con drag-and-drop
+- Hosting del curso: **Netlify free, deploy vía CLI/API** (programático · lo hace el agente, no a mano). **No** GitHub Pages (alumnos sin GitHub Pro). **No** drag-and-drop manual.
+- Compatible con Vercel · Cloudflare Pages · Surge.sh · cualquier static host con CLI/API.
 
 ## Handoff típico
 

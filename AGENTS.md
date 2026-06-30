@@ -20,7 +20,7 @@ Todas las skills siguen el mismo pattern: **Acoge → Diagnose (2-4 preguntas) �
 | `/data-quality-check` | S3 | Audita dataset contra los 10 errores comunes |
 | `/north-star-tree` | S3 | North-star metric + árbol de inputs multiplicativos + guardrails |
 | `/dashboard-builder` | S3 / S4 | Genera index.html con Chart.js publicable (4 preguntas: KPI hero, eje X, comparativa, filtros) |
-| `/publish-pages` | S3 / S4 | Publica index.html en Netlify (drag-and-drop) con URL pública |
+| `/publish-pages` | S3 / S4 | Publica index.html en Netlify (CLI/API) con URL pública |
 | `/rfm-segment` | S4 | Segmenta clientes en 8 segmentos RFM canónicos + acción por segmento |
 | `/growth-loop` | S4 | Identifica loop principal + sub-loops + input que escala + guardrail |
 | `/dashboard-judge` | S5 | Lee dashboard + devuelve hallazgos + hipótesis + palancas + experimento sí/no |
@@ -63,5 +63,5 @@ Si mañana sale un cliente nuevo (Claude 6, Codex 3, lo que sea), añades `setup
 
 - Un cliente AI con acceso a un LLM bueno (GPT-4o · Claude Sonnet 4.x · Gemini 1.5 Pro o superior)
 - `git` instalado
-- Cuenta Netlify gratis (para publicar dashboards y landings · drag-and-drop)
+- Cuenta Netlify gratis + Personal Access Token (para publicar dashboards y landings vía CLI/API)
 - Cuenta Make.com gratis (para hands-on S3)
