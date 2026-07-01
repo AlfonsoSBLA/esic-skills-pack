@@ -44,19 +44,19 @@ Después puedes verificar que las skills están disponibles. En Claude Code: `/h
 | Sesión | Skill | Para qué sirve |
 |--------|-------|----------------|
 | S1 | `/data-questions` | Convierte preguntas vagas en preguntas accionables (5-por qués + acotación) |
-| S1 | `/info-vs-insight` | Separa información objetiva de insight accionable en un dataset |
-| S2 | `/funnel-mapper` | Dibuja un funnel de cliente con touchpoints y fuentes de datos por etapa |
-| S2 | `/workflow-designer` | Diseña un scenario concreto en Make.com (trigger + acciones + branches) para un objetivo |
-| S2 | `/journey-designer` | Diseña un journey de Marketing Automation listo para implementar |
+| S2 | `/info-vs-insight` | Separa información objetiva de insight accionable en un dataset |
+| S2 | `/data-story` | Estructura hallazgos: Contexto → Hallazgo → Implicación → Recomendación → Próximo paso |
+| S2 | `/prioritize-macro-micro` | Prioriza palancas Macro (etapa funnel) + Micro (Quick/Slow × Big/Small) |
+| S3 | `/funnel-mapper` | Dibuja un funnel de cliente con touchpoints y fuentes de datos por etapa |
+| S3 | `/workflow-designer` | Diseña un scenario concreto en Make.com (trigger + acciones + branches) para un objetivo |
 | S3 | `/data-quality-check` | Detecta los 10 errores comunes del análisis (sucios, outliers, estacionalidad, etc.) |
 | S3 | `/north-star-tree` | A partir de objetivos de negocio, devuelve north-star + árbol de métricas |
 | S3 | `/dashboard-builder` | Toma CSV + KPIs y genera un dashboard HTML+Chart.js publicable |
-| S3 | `/data-story` | Estructura hallazgos: Contexto → Hallazgo → Implicación → Recomendación → Próximo paso |
 | S3 | `/publish-pages` | Configura y publica un dashboard o landing en Netlify (CLI/API) con URL pública |
+| S4 | `/journey-designer` | Diseña un journey de Marketing Automation listo para implementar |
 | S4 | `/rfm-segment` | Segmentación RFM (Recency, Frequency, Monetary) con acciones por segmento |
 | S4 | `/growth-loop` | Identifica el loop de crecimiento principal y sub-loops |
 | S5 | `/dashboard-judge` | Lee un dashboard + contexto y devuelve hallazgos, hipótesis y palancas |
-| S5 | `/prioritize-macro-micro` | Prioriza palancas Macro (etapa funnel) + Micro (Quick/Slow × Big/Small) |
 
 Todas siguen el pattern conversacional: **Acoge → Diagnose → Confirma → Produce → Itera**.
 
@@ -66,9 +66,9 @@ Detalle por skill en [`AGENTS.md`](AGENTS.md).
 
 ## Datos del curso
 
-Todos los ejercicios se hacen sobre el caso **Hospital Capilar** (anonimizado), una clínica capilar real del ecosistema Growth4U.
+El **trabajo grupal y los ejercicios por ángulo** se hacen sobre **Xuan Lan Yoga (XLY)** — una marca pública de yoga online. Sus datasets (uno por ángulo) están en la carpeta Drive del curso.
 
-Datasets en [`data/`](data/) — ver [`data/README.md`](data/README.md) para el detalle.
+El caso **Hospital Capilar** (anonimizado, una clínica capilar real del ecosistema Growth4U) se usa como **demo en clase** y como ejemplo trabajado. Sus datasets están en [`data/`](data/) — ver [`data/README.md`](data/README.md) para el detalle.
 Endpoints y URLs auxiliares en [`endpoints/`](endpoints/) — ver [`endpoints/README.md`](endpoints/README.md).
 
 ---
