@@ -1,12 +1,12 @@
 # AGENTS.md — esic-skills-pack
 
-Meta-índice de las 15 skills del curso ESIC MUDM0024. Convención compatible con múltiples clientes AI (Claude Code, Codex, Cursor, manual).
+Meta-índice de las 17 skills del curso ESIC MUDM0024. Convención compatible con múltiples clientes AI (Claude Code, Codex, Cursor, manual).
 
 ## Pattern conversacional común
 
 Todas las skills siguen el mismo pattern: **Acoge → Diagnose (2-4 preguntas) → Confirma → Produce → Itera**.
 
-## Inventario · 15 skills
+## Inventario · 17 skills
 
 | Nombre | Sesión | Para qué sirve |
 |---|---|---|
@@ -16,7 +16,9 @@ Todas las skills siguen el mismo pattern: **Acoge → Diagnose (2-4 preguntas) �
 | `/prioritize-macro-micro` | S2 | Prioriza palancas: Macro (etapa funnel) + Micro (Quick/Slow × Big/Small) |
 | `/funnel-mapper` | S3 | Mapea funnel del cliente con touchpoints + fuentes de datos por etapa (desde lo que sabes, sin URLs) |
 | `/funnel-finder` | S3 | Descubre el recorrido real navegando las URLs con Playwright: extrae pasos + pantallazos y marca los que hay que rematar a mano |
+| `/landing-builder` | S3 | Crea una landing base de captación (por defecto Xuan Lan Yoga) con Google Form embebido, lista para /publish-pages |
 | `/workflow-designer` | S3 | Diseña 1 scenario concreto en Make.com (trigger + acciones + branches) |
+| `/manual-guide` | S3 | Lee la doc oficial de una herramienta y guía el montaje manual paso a paso (fallback cuando no hay MCP/integración) |
 | `/journey-designer` | S3 / S4 | Diseña journey lifecycle (welcome → onboarding → win-back) |
 | `/data-quality-check` | S3 | Audita dataset contra los 10 errores comunes |
 | `/north-star-tree` | S3 | North-star metric + árbol de inputs multiplicativos + guardrails |
@@ -44,7 +46,7 @@ esic-skills-pack/
 ├── skills/                  ← LA FUENTE DE VERDAD
 │   ├── data-questions/SKILL.md
 │   ├── info-vs-insight/SKILL.md
-│   ├── ... (las 15)
+│   ├── ... (las 16)
 ├── setup/                   ← adaptadores por cliente
 │   ├── claude-code.sh
 │   ├── codex.sh
