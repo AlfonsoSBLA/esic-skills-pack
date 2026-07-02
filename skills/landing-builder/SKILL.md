@@ -1,6 +1,6 @@
 ---
 name: landing-builder
-description: Skill conversacional que crea UNA landing HTML self-contained de captación con el look & feel de la marca (por defecto Xuan Lan Yoga · yoga online: tonos calma, verde suave, mucho aire). Incluye hero + barra de confianza + secciones de beneficios + un formulario de captura embebido (Google Form en un iframe) + testimonios + cierre, y un banner de "demo educativa ESIC". ANTES de publicar, la previsualiza y pide feedback al alumno (logo real, colores, mejoras de UX). Output = un index.html listo para publicar con /publish-pages. Úsala cuando necesites crear la página de captación de tu funnel en S3. Para publicarla en Netlify usa /publish-pages; para descubrir el recorrido del cliente usa /funnel-finder.
+description: Skill conversacional que crea UNA landing HTML self-contained de captación con el look & feel REAL de la marca — antes de crear, hace Web Fetch del sitio de la marca (por defecto xuanlanyoga.com) y saca su paleta, tipografía y tono reales. Incluye hero + barra de confianza + secciones de beneficios + un formulario de captura embebido (Google Form en un iframe) + testimonios + cierre, y un banner de "demo educativa ESIC". ANTES de publicar, la previsualiza y pide feedback al alumno (logo real, colores, mejoras de UX). Output = un index.html listo para publicar con /publish-pages. Úsala cuando necesites crear la página de captación de tu funnel en S3. Para publicarla en Netlify usa /publish-pages; para descubrir el recorrido del cliente usa /funnel-finder.
 ---
 
 # /landing-builder · Conversacional
@@ -16,7 +16,7 @@ Acoge → Diagnose → Confirma → Produce → Itera
 ## Flujo
 
 ### Acoge
-*"¿Para qué marca? (por defecto Xuan Lan Yoga · yoga online). ¿Tienes ya el Google Form de captura y su ID?"*
+*"¿Para qué marca? (por defecto Xuan Lan Yoga · yoga online · saco su look real de xuanlanyoga.com con Web Fetch). ¿Tienes ya el Google Form de captura y su ID?"*
 
 ### Diagnose (4 preguntas)
 
@@ -29,7 +29,9 @@ Acoge → Diagnose → Confirma → Produce → Itera
 Espejo de marca + hero + secciones + Form ID.
 
 ### Produce
-Un `index.html` autocontenido (CSS inline, sin dependencias) con:
+**Primero, coge el look real.** Haz **Web Fetch** del sitio de la marca (por defecto <https://xuanlanyoga.com>) y extrae su **paleta de colores, tipografía y tono** reales. Úsalos en la landing (la paleta de abajo es solo un *fallback* si el sitio no carga).
+
+Después genera un `index.html` autocontenido (CSS inline, sin dependencias) con:
 - **Banner amarillo** "Demo educativa · ESIC MUDM0024 · no es el sitio real" (siempre, porque replica una marca que no es tuya).
 - **Hero**: eyebrow + h1 + subtítulo + botón CTA que baja al formulario.
 - **Barra de confianza** con los 3 datos.
@@ -38,11 +40,10 @@ Un `index.html` autocontenido (CSS inline, sin dependencias) con:
 - **Testimonios + cierre + footer** con disclaimer ESIC.
 - **Responsive** (media query móvil: menos padding, iframe más alto).
 
-Paleta por defecto (Xuan Lan · yoga online):
+Paleta de **fallback** (Xuan Lan · yoga online) — solo si el Web Fetch del sitio real falla:
 ```css
 :root{ --verde:#7BA890; --verde-oscuro:#4E6E5D; --crema:#F5F1E8; --tinta:#2E332E; --suave:#EDF2ED; }
 ```
-(Cambia la paleta si la marca es otra.)
 
 ### Previsualiza y pide feedback (ANTES de publicar)
 Enseña la landing renderizada al alumno (**preview en Teros**) y pídele feedback concreto — no la publiques a la primera. Pregunta al menos:
@@ -56,6 +57,7 @@ Itera sobre el HTML hasta que dé el visto bueno. **Solo entonces** pasa a `/pub
 
 ## Reglas
 
+- **Look real primero.** Antes de generar, haz Web Fetch del sitio de referencia (por defecto xuanlanyoga.com) y usa sus colores y tipografía reales; la paleta por defecto es solo fallback.
 - **Autocontenida**: cero dependencias externas salvo el iframe del Google Form. CSS inline.
 - **Banner de demo SIEMPRE** cuando replica una marca real que no posees (XLY, etc.), y disclaimer en el footer. No es el sitio oficial.
 - **Sustituye `FORM_ID`** por el ID real del Google Form. Si aún no lo tienes, deja `FORM_ID` como marcador y dilo claramente para cambiarlo después.
