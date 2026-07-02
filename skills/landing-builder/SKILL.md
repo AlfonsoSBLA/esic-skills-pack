@@ -1,6 +1,6 @@
 ---
 name: landing-builder
-description: Skill conversacional que crea UNA landing HTML self-contained de captación con el look & feel de la marca (por defecto Xuan Lan Yoga · yoga online: tonos calma, verde suave, mucho aire). Incluye hero + barra de confianza + secciones de beneficios + un formulario de captura embebido (Google Form en un iframe) + testimonios + cierre, y un banner de "demo educativa ESIC". Output = un index.html listo para publicar con /publish-pages. Úsala cuando necesites crear la página de captación de tu funnel en S3. Para publicarla en Netlify usa /publish-pages; para descubrir el recorrido del cliente usa /funnel-finder.
+description: Skill conversacional que crea UNA landing HTML self-contained de captación con el look & feel de la marca (por defecto Xuan Lan Yoga · yoga online: tonos calma, verde suave, mucho aire). Incluye hero + barra de confianza + secciones de beneficios + un formulario de captura embebido (Google Form en un iframe) + testimonios + cierre, y un banner de "demo educativa ESIC". ANTES de publicar, la previsualiza y pide feedback al alumno (logo real, colores, mejoras de UX). Output = un index.html listo para publicar con /publish-pages. Úsala cuando necesites crear la página de captación de tu funnel en S3. Para publicarla en Netlify usa /publish-pages; para descubrir el recorrido del cliente usa /funnel-finder.
 ---
 
 # /landing-builder · Conversacional
@@ -44,8 +44,15 @@ Paleta por defecto (Xuan Lan · yoga online):
 ```
 (Cambia la paleta si la marca es otra.)
 
+### Previsualiza y pide feedback (ANTES de publicar)
+Enseña la landing renderizada al alumno (**preview en Teros**) y pídele feedback concreto — no la publiques a la primera. Pregunta al menos:
+- *"¿Pongo el **logo real** de la marca? Pásame el archivo o el enlace y lo coloco en el header."*
+- *"¿Ajusto colores, tipografía o el copy de alguna sección?"*
+- *"¿Algo de **UX** que mejorar? (el formulario más arriba · el CTA más visible · quitar una sección que sobra · el orden de las secciones · el texto del botón)."*
+Itera sobre el HTML hasta que dé el visto bueno. **Solo entonces** pasa a `/publish-pages`.
+
 ### Itera
-*"¿Ajusto copy / paleta / secciones? ¿Te paso a /publish-pages para subirla a Netlify?"*
+*"¿Otro cambio? Cuando esté a tu gusto, la subo a Netlify con /publish-pages."*
 
 ## Reglas
 
@@ -54,6 +61,7 @@ Paleta por defecto (Xuan Lan · yoga online):
 - **Sustituye `FORM_ID`** por el ID real del Google Form. Si aún no lo tienes, deja `FORM_ID` como marcador y dilo claramente para cambiarlo después.
 - **Ligera y clara**: 1 idea por sección, tipografía grande, mucho aire. Es una pieza de aprendizaje, no un sitio de producción.
 - **Móvil**: los Google Forms se ven más largos → sube el `min-height` del iframe en la media query.
+- **Enseña antes de publicar.** Nunca saltes directo a `/publish-pages`: primero muestra la landing y pide feedback (logo real, UX). Publicar es el último paso, cuando el alumno da el OK.
 
 ## Ejemplo · Xuan Lan Yoga (yoga online)
 

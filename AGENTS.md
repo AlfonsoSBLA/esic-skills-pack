@@ -1,12 +1,12 @@
 # AGENTS.md — esic-skills-pack
 
-Meta-índice de las 18 skills del curso ESIC MUDM0024. Convención compatible con múltiples clientes AI (Claude Code, Codex, Cursor, manual).
+Meta-índice de las 19 skills del curso ESIC MUDM0024. Convención compatible con múltiples clientes AI (Claude Code, Codex, Cursor, manual).
 
 ## Pattern conversacional común
 
 Todas las skills siguen el mismo pattern: **Acoge → Diagnose (2-4 preguntas) → Confirma → Produce → Itera**.
 
-## Inventario · 18 skills
+## Inventario · 19 skills
 
 | Nombre | Sesión | Para qué sirve |
 |---|---|---|
@@ -16,7 +16,8 @@ Todas las skills siguen el mismo pattern: **Acoge → Diagnose (2-4 preguntas) �
 | `/prioritize-macro-micro` | S2 | Prioriza palancas: Macro (etapa funnel) + Micro (Quick/Slow × Big/Small) |
 | `/funnel-mapper` | S3 | Mapea funnel del cliente con touchpoints + fuentes de datos por etapa (desde lo que sabes, sin URLs) |
 | `/funnel-finder` | S3 | Descubre el recorrido real navegando las URLs con Playwright: extrae pasos + pantallazos y marca los que hay que rematar a mano |
-| `/landing-builder` | S3 | Crea una landing base de captación (por defecto Xuan Lan Yoga) con Google Form embebido, lista para /publish-pages |
+| `/form-builder` | S3 | Define tu Google Form + checklist para crearlo; te dice cómo coger los 2 enlaces (público y privado), el ID y la hoja de respuestas |
+| `/landing-builder` | S3 | Crea una landing base (por defecto Xuan Lan Yoga) con Google Form embebido; previsualiza y pide feedback (logo real, UX) antes de /publish-pages |
 | `/workflow-designer` | S3 | Diseña 1 scenario concreto en Make.com (trigger + acciones + branches) |
 | `/manual-guide` | S3 | Lee la doc oficial de una herramienta y guía el montaje manual paso a paso (fallback cuando no hay MCP/integración) |
 | `/make-scenario-builder` | S3 | Genera un blueprint JSON de Make importable (Sheets → Brevo → WhatsApp) · vía rápida del bonus de Make |

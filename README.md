@@ -39,7 +39,7 @@ Después puedes verificar que las skills están disponibles. En Claude Code: `/h
 
 ---
 
-## Skills disponibles (18)
+## Skills disponibles (19)
 
 | Sesión | Skill | Para qué sirve |
 |--------|-------|----------------|
@@ -49,7 +49,8 @@ Después puedes verificar que las skills están disponibles. En Claude Code: `/h
 | S2 | `/prioritize-macro-micro` | Prioriza palancas Macro (etapa funnel) + Micro (Quick/Slow × Big/Small) |
 | S3 | `/funnel-mapper` | Dibuja un funnel de cliente con touchpoints y fuentes de datos por etapa |
 | S3 | `/funnel-finder` | Descubre el recorrido real navegando las URLs con Playwright: extrae los pasos, saca los pantallazos que puede y marca los que debes rematar a mano |
-| S3 | `/landing-builder` | Crea una landing base de captación (por defecto Xuan Lan Yoga · yoga online) con un Google Form embebido, lista para publicar |
+| S3 | `/form-builder` | Define tu Google Form de captación + checklist para crearlo, y te dice cómo coger los dos enlaces (público y privado), el ID y la hoja de respuestas |
+| S3 | `/landing-builder` | Crea una landing base de captación (por defecto Xuan Lan Yoga · yoga online) con un Google Form embebido; la previsualiza y pide feedback (logo real, UX) antes de publicar |
 | S3 | `/workflow-designer` | Diseña un scenario concreto en Make.com (trigger + acciones + branches) para un objetivo |
 | S3 | `/manual-guide` | Lee la doc oficial de una herramienta y guía el montaje manual paso a paso (fallback cuando no hay MCP/integración) |
 | S3 | `/make-scenario-builder` | Genera un blueprint JSON de Make listo para importar (Sheets → Brevo → WhatsApp) · vía rápida del bonus de Make |
