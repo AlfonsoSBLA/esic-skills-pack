@@ -18,7 +18,7 @@ Todas las skills siguen el mismo pattern: **Acoge → Diagnose (2-4 preguntas) �
 | `/funnel-finder` | S3 | Descubre el recorrido real navegando las URLs con Playwright: extrae pasos + pantallazos y marca los que hay que rematar a mano |
 | `/form-builder` | S3 | Define tu Google Form + checklist para crearlo; te dice cómo coger los 2 enlaces (público y privado), el ID y la hoja de respuestas |
 | `/landing-builder` | S3 | Crea una landing base (por defecto Xuan Lan Yoga) con Google Form embebido; previsualiza y pide feedback (logo real, UX) antes de /publish-pages |
-| `/workflow-designer` | S3 | Diseña 1 scenario concreto en Make.com (trigger + acciones + branches) |
+| `/workflow-designer` | S3 | Diseña la lógica de la automatización (agnóstica) y sugiere ejecutarla con Teros directo o en Make (JSON/manual) |
 | `/manual-guide` | S3 | Lee la doc oficial de una herramienta y guía el montaje manual paso a paso (fallback cuando no hay MCP/integración) |
 | `/make-scenario-builder` | S3 | Genera un blueprint JSON de Make importable (Sheets → Brevo → WhatsApp) · vía rápida del bonus de Make |
 | `/journey-designer` | S3 / S4 | Diseña journey lifecycle (welcome → onboarding → win-back) |

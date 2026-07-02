@@ -51,7 +51,7 @@ Después puedes verificar que las skills están disponibles. En Claude Code: `/h
 | S3 | `/funnel-finder` | Descubre el recorrido real navegando las URLs con Playwright: extrae los pasos, saca los pantallazos que puede y marca los que debes rematar a mano |
 | S3 | `/form-builder` | Define tu Google Form de captación + checklist para crearlo, y te dice cómo coger los dos enlaces (público y privado), el ID y la hoja de respuestas |
 | S3 | `/landing-builder` | Crea una landing base de captación (por defecto Xuan Lan Yoga · yoga online) con un Google Form embebido; la previsualiza y pide feedback (logo real, UX) antes de publicar |
-| S3 | `/workflow-designer` | Diseña un scenario concreto en Make.com (trigger + acciones + branches) para un objetivo |
+| S3 | `/workflow-designer` | Diseña la lógica de la automatización (disparador + acciones + mapeo) de forma agnóstica y sugiere ejecutarla con Teros directo o en Make (JSON o a mano) |
 | S3 | `/manual-guide` | Lee la doc oficial de una herramienta y guía el montaje manual paso a paso (fallback cuando no hay MCP/integración) |
 | S3 | `/make-scenario-builder` | Genera un blueprint JSON de Make listo para importar (Sheets → Brevo → WhatsApp) · vía rápida del bonus de Make |
 | S3 | `/data-quality-check` | Detecta los 10 errores comunes del análisis (sucios, outliers, estacionalidad, etc.) |

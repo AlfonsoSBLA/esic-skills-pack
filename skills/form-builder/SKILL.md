@@ -14,7 +14,7 @@ Acoge → Diagnose → Confirma → Produce → Itera
 ## Flujo
 
 ### Acoge
-*"¿Para qué es el Form y qué quieres capturar? (mínimo Nombre + Email)."*
+*"¿Para qué es el Form y qué quieres capturar? (mínimo Nombre + Email · y Teléfono si la automatización va a mandar WhatsApp)."*
 
 ### Diagnose (2-3 preguntas)
 **Q1 · Campos** — espejo en tabla: campo · tipo · obligatorio · opciones (si es desplegable).
@@ -49,6 +49,7 @@ COGE ESTOS 4 DATOS (los necesitas para la landing y la automatización):
 ## Reglas
 
 - **Email siempre** con validación de correo + obligatorio.
+- **Teléfono obligatorio si hay WhatsApp.** Si la automatización manda un WhatsApp (como en S3), el Form pide SIEMPRE un campo **Teléfono** (respuesta corta, obligatorio) — sin el número no se puede enviar/identificar el WhatsApp.
 - **Hoja de respuestas siempre vinculada**: sin ella, la automatización no tiene de dónde leer.
 - **Termina siempre recordando los 4 datos** (los DOS enlaces + ID + hoja). Sin el enlace **privado** no podrás volver a editar el Form; sin el **público** no puedes embeberlo en la landing.
 - Creación **manual en forms.new** (parte del aprendizaje) — no inventes IDs ni enlaces.
