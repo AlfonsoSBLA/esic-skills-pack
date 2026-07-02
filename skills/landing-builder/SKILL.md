@@ -7,7 +7,7 @@ description: Skill conversacional que crea UNA landing HTML self-contained de ca
 
 Crea la **página de captación** (landing) de tu funnel: una web sencilla, bonita y autocontenida (un solo `index.html`) con un formulario que recoge al lead. Por defecto sigue el estilo de **Xuan Lan Yoga** (yoga online: calma, verde suave, mucho espacio en blanco), pero admite cualquier marca de referencia.
 
-Clave: el formulario de captura es un **Google Form embebido** (un `<iframe>`). Así el lead cae directo en una hoja de Google Sheets y tu scenario de Make puede reaccionar a cada respuesta. Crea el Google Form ANTES (o pídeselo a Iria) y ten a mano su **ID** (está en la URL del Form: `.../forms/d/e/XXXX/viewform`).
+Clave: el formulario de captura es un **Google Form embebido** (un `<iframe>`). Así el lead cae directo en una hoja de Google Sheets y tu automatización puede reaccionar a cada respuesta. Crea el Google Form ANTES (o pídeselo a Iria) y ten a mano su **ID** (está en la URL del Form: `.../forms/d/e/XXXX/viewform`).
 
 ## Pattern
 
