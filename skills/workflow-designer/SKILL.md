@@ -41,9 +41,10 @@ La MISMA automatización, dos caminos — preséntalos siempre así:
 
 **A) Con Teros directamente — camino principal (recomendado para clase).**
 Iria la monta como **tarea recurrente**: cada 15 min revisa el Form y, por cada respuesta nueva, hace los pasos. Simple y sin salir de Teros.
+> 🔑 **Para no repetir leads** entre ejecuciones, usa una columna **"Procesado"** en la hoja de respuestas: actúa solo sobre las filas que NO estén marcadas y márcalas al terminar. Sin esto, el cron reprocesa TODAS las filas cada 15 min (duplicados + spam).
 > ⚠ Es un cron: recuérdale **apagarlo al terminar** (si no, sigue ejecutándose y gastando agente).
 
-**B) Con Make.com — bonus (+5).** Dos maneras:
+**B) Con Make.com — bonus (+5).** *(Iria no monta Make por MCP — la conexión no va; el scenario lo montas tú.)* Dos maneras:
 - **Rápida (por JSON)** → `/make-scenario-builder` genera el blueprint y lo importas en Make.
 - **A mano (aprendes más)** → `/manual-guide` te da el paso a paso click a click en la UI de Make.
 
