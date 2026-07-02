@@ -1,12 +1,12 @@
 # AGENTS.md — esic-skills-pack
 
-Meta-índice de las 17 skills del curso ESIC MUDM0024. Convención compatible con múltiples clientes AI (Claude Code, Codex, Cursor, manual).
+Meta-índice de las 18 skills del curso ESIC MUDM0024. Convención compatible con múltiples clientes AI (Claude Code, Codex, Cursor, manual).
 
 ## Pattern conversacional común
 
 Todas las skills siguen el mismo pattern: **Acoge → Diagnose (2-4 preguntas) → Confirma → Produce → Itera**.
 
-## Inventario · 17 skills
+## Inventario · 18 skills
 
 | Nombre | Sesión | Para qué sirve |
 |---|---|---|
@@ -19,6 +19,7 @@ Todas las skills siguen el mismo pattern: **Acoge → Diagnose (2-4 preguntas) �
 | `/landing-builder` | S3 | Crea una landing base de captación (por defecto Xuan Lan Yoga) con Google Form embebido, lista para /publish-pages |
 | `/workflow-designer` | S3 | Diseña 1 scenario concreto en Make.com (trigger + acciones + branches) |
 | `/manual-guide` | S3 | Lee la doc oficial de una herramienta y guía el montaje manual paso a paso (fallback cuando no hay MCP/integración) |
+| `/make-scenario-builder` | S3 | Genera un blueprint JSON de Make importable (Sheets → Brevo → WhatsApp) · vía rápida del bonus de Make |
 | `/journey-designer` | S3 / S4 | Diseña journey lifecycle (welcome → onboarding → win-back) |
 | `/data-quality-check` | S3 | Audita dataset contra los 10 errores comunes |
 | `/north-star-tree` | S3 | North-star metric + árbol de inputs multiplicativos + guardrails |

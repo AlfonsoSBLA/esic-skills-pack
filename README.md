@@ -39,7 +39,7 @@ Después puedes verificar que las skills están disponibles. En Claude Code: `/h
 
 ---
 
-## Skills disponibles (17)
+## Skills disponibles (18)
 
 | Sesión | Skill | Para qué sirve |
 |--------|-------|----------------|
@@ -52,6 +52,7 @@ Después puedes verificar que las skills están disponibles. En Claude Code: `/h
 | S3 | `/landing-builder` | Crea una landing base de captación (por defecto Xuan Lan Yoga · yoga online) con un Google Form embebido, lista para publicar |
 | S3 | `/workflow-designer` | Diseña un scenario concreto en Make.com (trigger + acciones + branches) para un objetivo |
 | S3 | `/manual-guide` | Lee la doc oficial de una herramienta y guía el montaje manual paso a paso (fallback cuando no hay MCP/integración) |
+| S3 | `/make-scenario-builder` | Genera un blueprint JSON de Make listo para importar (Sheets → Brevo → WhatsApp) · vía rápida del bonus de Make |
 | S3 | `/data-quality-check` | Detecta los 10 errores comunes del análisis (sucios, outliers, estacionalidad, etc.) |
 | S3 | `/north-star-tree` | A partir de objetivos de negocio, devuelve north-star + árbol de métricas |
 | S3 | `/dashboard-builder` | Toma CSV + KPIs y genera un dashboard HTML+Chart.js publicable |
