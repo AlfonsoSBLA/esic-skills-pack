@@ -39,7 +39,7 @@ Después puedes verificar que las skills están disponibles. En Claude Code: `/h
 
 ---
 
-## Skills disponibles (14)
+## Skills disponibles (15)
 
 | Sesión | Skill | Para qué sirve |
 |--------|-------|----------------|
@@ -48,6 +48,7 @@ Después puedes verificar que las skills están disponibles. En Claude Code: `/h
 | S2 | `/data-story` | Estructura hallazgos: Contexto → Hallazgo → Implicación → Recomendación → Próximo paso |
 | S2 | `/prioritize-macro-micro` | Prioriza palancas Macro (etapa funnel) + Micro (Quick/Slow × Big/Small) |
 | S3 | `/funnel-mapper` | Dibuja un funnel de cliente con touchpoints y fuentes de datos por etapa |
+| S3 | `/funnel-finder` | Descubre el recorrido real navegando las URLs con Playwright: extrae los pasos, saca los pantallazos que puede y marca los que debes rematar a mano |
 | S3 | `/workflow-designer` | Diseña un scenario concreto en Make.com (trigger + acciones + branches) para un objetivo |
 | S3 | `/data-quality-check` | Detecta los 10 errores comunes del análisis (sucios, outliers, estacionalidad, etc.) |
 | S3 | `/north-star-tree` | A partir de objetivos de negocio, devuelve north-star + árbol de métricas |
@@ -78,8 +79,8 @@ Endpoints y URLs auxiliares en [`endpoints/`](endpoints/) — ver [`endpoints/RE
 ```
 esic-skills-pack/
 ├── README.md                ← este archivo
-├── AGENTS.md                ← índice meta de las 14 skills (convención multi-cliente)
-├── skills/                  ← LA FUENTE DE VERDAD · 14 skills en markdown puro
+├── AGENTS.md                ← índice meta de las 15 skills (convención multi-cliente)
+├── skills/                  ← LA FUENTE DE VERDAD · 15 skills en markdown puro
 │   ├── data-questions/SKILL.md
 │   ├── info-vs-insight/SKILL.md
 │   ├── ... (14 directorios)

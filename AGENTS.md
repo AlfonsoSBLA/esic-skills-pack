@@ -1,12 +1,12 @@
 # AGENTS.md — esic-skills-pack
 
-Meta-índice de las 14 skills del curso ESIC MUDM0024. Convención compatible con múltiples clientes AI (Claude Code, Codex, Cursor, manual).
+Meta-índice de las 15 skills del curso ESIC MUDM0024. Convención compatible con múltiples clientes AI (Claude Code, Codex, Cursor, manual).
 
 ## Pattern conversacional común
 
 Todas las skills siguen el mismo pattern: **Acoge → Diagnose (2-4 preguntas) → Confirma → Produce → Itera**.
 
-## Inventario · 14 skills
+## Inventario · 15 skills
 
 | Nombre | Sesión | Para qué sirve |
 |---|---|---|
@@ -14,7 +14,8 @@ Todas las skills siguen el mismo pattern: **Acoge → Diagnose (2-4 preguntas) �
 | `/info-vs-insight` | S2 | Clasifica findings como INFO (descriptivo) vs INSIGHT (accionable) |
 | `/data-story` | S2 | Estructura narrativa 5 pasos: Contexto → Hallazgo → Implicación → Recomendación → Próximo paso |
 | `/prioritize-macro-micro` | S2 | Prioriza palancas: Macro (etapa funnel) + Micro (Quick/Slow × Big/Small) |
-| `/funnel-mapper` | S3 | Mapea funnel del cliente con touchpoints + fuentes de datos por etapa |
+| `/funnel-mapper` | S3 | Mapea funnel del cliente con touchpoints + fuentes de datos por etapa (desde lo que sabes, sin URLs) |
+| `/funnel-finder` | S3 | Descubre el recorrido real navegando las URLs con Playwright: extrae pasos + pantallazos y marca los que hay que rematar a mano |
 | `/workflow-designer` | S3 | Diseña 1 scenario concreto en Make.com (trigger + acciones + branches) |
 | `/journey-designer` | S3 / S4 | Diseña journey lifecycle (welcome → onboarding → win-back) |
 | `/data-quality-check` | S3 | Audita dataset contra los 10 errores comunes |
@@ -43,7 +44,7 @@ esic-skills-pack/
 ├── skills/                  ← LA FUENTE DE VERDAD
 │   ├── data-questions/SKILL.md
 │   ├── info-vs-insight/SKILL.md
-│   ├── ... (las 14)
+│   ├── ... (las 15)
 ├── setup/                   ← adaptadores por cliente
 │   ├── claude-code.sh
 │   ├── codex.sh
